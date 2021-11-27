@@ -1,4 +1,35 @@
 {
-  "extends": ["next", "prettier"],
-  "root": true
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    /*"airbnb",
+    "airbnb/hook",*/
+    //"acme",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    //"airbnb",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "rules": {
+    "quotes": "warn",
+    "semi": "off",
+    "no-console": "warn",
+    "no-empty": "error",
+    "no-var": "warn",
+    "no-unused-vars": "warn",
+    "prettier/prettier": "warn"
+  }
 }
