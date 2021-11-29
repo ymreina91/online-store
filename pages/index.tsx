@@ -2,16 +2,16 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-import { useDispatch } from "react-redux";
+/*import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { articleActions } from "@redux/actions";
+import { articleActions } from "@redux/actions";*/
 
 const Home: NextPage = () => {
-  const dispatch = useDispatch();
+ /* const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(articleActions.retrieveArticles());
-  }, []);
+  }, []);*/
 
   return (
     <div className={styles.container}>
