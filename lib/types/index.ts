@@ -41,3 +41,11 @@ export interface IGlobalState {
   categories?: ICategory[];
   departments?: IDepartments[];
 }
+
+export interface IPropsNavBar {
+  sidebar?: boolean;
+  setSidebar: Function;
+}
+
+
+
