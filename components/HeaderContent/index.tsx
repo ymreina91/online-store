@@ -1,1 +1,1 @@
-export { default as HeaderContent} from "./headerContent";
+export { default as HeaderContent } from "./headerContent";

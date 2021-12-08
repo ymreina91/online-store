@@ -1,19 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { colors } from '@lib/constants';
-import Link from 'next/link'
-import {
-  Sidebar,
-  Nav,
-  Avatar,
-  Button,
-  Text,
-  Box } from 'grommet';
-import {
-  Dashboard,
-  Package,
-  Organization,
-  Catalog } from 'grommet-icons';
+import React from "react";
+import styled from "styled-components";
+import { colors } from "@lib/constants";
+import Link from "next/link";
+import { Sidebar, Nav, Avatar, Button, Text, Box } from "grommet";
+import { Dashboard, Package, Organization, Catalog } from "grommet-icons";
 
 const Label = styled(Text)`
   font-weight: 400;
@@ -54,48 +44,58 @@ const TabBar = styled(Button)`
 const SideBar: React.FC<{}> = ({ ...props }) => {
   return (
     <>
-      <Sidebar gridArea="sidebar"
-               background={colors.dark}
-               round="small"
-               animation={[
-                 { type: 'fadeIn', duration: 300 },
-                 { type: 'slideRight', size: 'xlarge', duration: 150 },
-               ]}
-               header={
-                 <Box direction="row"
-                      align="center"
-                      justify="center"
-                      pad={{bottom: "small"}}
-                      style={{ borderBottom: "1px solid #c3c3c3"}}>
-                   <Avatar src="/image/avatar.png" />
-                   <Label style={{marginLeft: 5}}>Name</Label>
-                 </Box>
-               }
-               footer={
-                 <Text>Footer</Text>
-               }
-               style={{borderRadius: "0", minHeight: "100vh"}}
+      <Sidebar
+        gridArea="sidebar"
+        background={colors.dark}
+        round="small"
+        animation={[
+          { type: "fadeIn", duration: 300 },
+          { type: "slideRight", size: "xlarge", duration: 150 },
+        ]}
+        header={
+          <Box
+            direction="row"
+            align="center"
+            justify="center"
+            pad={{ bottom: "small" }}
+            style={{ borderBottom: "1px solid #c3c3c3" }}
+          >
+            <Avatar src="/image/avatar.png" />
+            <Label style={{ marginLeft: 5 }}>Name</Label>
+          </Box>
+        }
+        footer={<Text>Footer</Text>}
+        style={{ borderRadius: "0", minHeight: "100vh" }}
       >
         <Nav gap="small">
           <Link href="/dashboard">
-            <TabBar icon={<Dashboard />}
-                    label={<Label>Dashboard</Label>}
-                    href="#" hoverIndicator/>
+            <TabBar
+              icon={<Dashboard />}
+              label={<Label>Dashboard</Label>}
+              href="#"
+              hoverIndicator
+            />
           </Link>
           <Link href="/articles">
-            <TabBar icon={<Package />}
-                  label={<Label>Articles</Label>}
-                  hoverIndicator/>
+            <TabBar
+              icon={<Package />}
+              label={<Label>Articles</Label>}
+              hoverIndicator
+            />
           </Link>
           <Link href="/categories">
-          <TabBar icon={<Catalog />}
-                  label={<Label>Categories</Label>}
-                  hoverIndicator/>
+            <TabBar
+              icon={<Catalog />}
+              label={<Label>Categories</Label>}
+              hoverIndicator
+            />
           </Link>
           <Link href="/departments">
-          <TabBar icon={<Organization />}
-                  label={<Label>Departments</Label>}
-                  hoverIndicator/>
+            <TabBar
+              icon={<Organization />}
+              label={<Label>Departments</Label>}
+              hoverIndicator
+            />
           </Link>
         </Nav>
       </Sidebar>

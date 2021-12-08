@@ -1,43 +1,24 @@
-import type { NextPage, GetStaticProps } from "next";
-
-import { useDispatch } from "react-redux";
+import type { NextPage } from "next";
+import { IGlobalState } from "@lib/types";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { articleActions } from "@redux/actions";
+import { articleActions, categoryActions, departmentActions } from "@redux/actions";
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
 
+  const { articles, categories, departments } = useSelector((state: IGlobalState ) => state);
+  console.log("state->articles: ", articles)
+  console.log("state->categories: ", categories)
+  console.log("state->departments: ", departments)
+
   useEffect(() => {
     dispatch(articleActions.retrieveArticles());
+    dispatch(categoryActions.retrieveCategories());
+    dispatch(departmentActions.retrieveDepartments());
   }, []);
 
-  return (
-    <>
-      Home
-    </>
-  );
+  return <>Home</>;
 };
 
 export default Home;
-
-/*export const getStaticProps: GetStaticProps = async (context) => {
-
-  return {
-    props: { data }, // will be passed to the page component as props
-  }
-}*/
-
-/*export async function getStaticProps(context) {
-  const res = await fetch(`https://.../data`)
-  const data = await res.json()
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-
-  return {
-    props: { data }, // will be passed to the page component as props
-  }
-}*/

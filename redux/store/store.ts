@@ -1,12 +1,17 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, Store, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
-import reducers from '../reducer';
+import { createWrapper } from 'next-redux-wrapper';
+import { IGlobalState, initialState } from "@lib/types";
+import reducers from '@redux/reducer';
 
 const store = createStore(
-    reducers,
-    {},
-    composeWithDevTools(applyMiddleware(thunkMiddleware))
+  reducers,
+  initialState,
+  composeWithDevTools(applyMiddleware(thunkMiddleware))
 );
+
+const makeStore = () => store;
+export const wrapper = createWrapper<Store<IGlobalState>>(makeStore, {debug: true});
 
 export default store;

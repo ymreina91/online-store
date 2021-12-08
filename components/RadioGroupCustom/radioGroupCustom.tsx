@@ -1,7 +1,7 @@
 import React from "react";
-import { Box , RadioButton} from 'grommet';
-import styled from 'styled-components';
-import { IPropsRadioGroupCustom } from '@lib/types';
+import { Box, RadioButton } from "grommet";
+import styled from "styled-components";
+import { IPropsRadioGroupCustom } from "@lib/types";
 
 const ButtonGroupCustom = styled(Box)`
   .dRTwkH {
@@ -23,29 +23,29 @@ const ButtonGroupCustom = styled(Box)`
         height: 24px;
       }
     }
-    .eWOCnH{
+    .eWOCnH {
       border: 3px solid #4196f3;
       width: 18px;
       height: 18px;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         border: 3px solid #0070f3;
       }
     }
   }
 `;
 
-const RadioGroupCustom: React.FC<IPropsRadioGroupCustom> = (
-  {
-    checked,
-    setChecked,
-    items,
-    children,
-    ...props
-  }) => {
+const RadioGroupCustom: React.FC<IPropsRadioGroupCustom> = ({
+  checked,
+  setChecked,
+  items,
+  children,
+  ...props
+}) => {
   return (
     <Box direction="row">
-      {
-        items && items.map(item =>
+      {items &&
+        items.map((item) => (
           <ButtonGroupCustom>
             <RadioButton
               id="radio1"
@@ -54,10 +54,9 @@ const RadioGroupCustom: React.FC<IPropsRadioGroupCustom> = (
               onChange={(event) => setChecked(event.target.checked)}
             />
           </ButtonGroupCustom>
-        )
-      }
+        ))}
     </Box>
-  )};
+  );
+};
 
 export default RadioGroupCustom;
-
