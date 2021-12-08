@@ -1,10 +1,7 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import type { NextPage, GetStaticProps } from "next";
+
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { Header, Button, Menu } from 'grommet';
-import { Dashboard } from 'grommet-icons';
-import { Layout } from "@components/Layout";
 import { articleActions } from "@redux/actions";
 
 const Home: NextPage = () => {
@@ -15,10 +12,32 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <Layout>
-      children Layout
-    </Layout>
+    <>
+      Home
+    </>
   );
 };
 
 export default Home;
+
+/*export const getStaticProps: GetStaticProps = async (context) => {
+
+  return {
+    props: { data }, // will be passed to the page component as props
+  }
+}*/
+
+/*export async function getStaticProps(context) {
+  const res = await fetch(`https://.../data`)
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { data }, // will be passed to the page component as props
+  }
+}*/

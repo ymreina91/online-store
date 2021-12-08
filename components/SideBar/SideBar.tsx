@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '@lib/constants';
-
+import Link from 'next/link'
 import {
   Sidebar,
   Nav,
@@ -26,7 +26,7 @@ const Label = styled(Text)`
   ...props
 `;
 
-const TadBar = styled(Button)`
+const TabBar = styled(Button)`
   border-width: 0;
   justify-content: center;
   &:hover, &:focus {
@@ -77,18 +77,26 @@ const SideBar: React.FC<{}> = ({ ...props }) => {
                style={{borderRadius: "0", minHeight: "100vh"}}
       >
         <Nav gap="small">
-          <TadBar icon={<Dashboard />}
-                  label={<Label>Dashboard</Label>}
-                  href="#" hoverIndicator/>
-          <TadBar icon={<Package />}
-                  label={<Label>Products</Label>}
-                  href="#" hoverIndicator/>
-          <TadBar icon={<Catalog />}
+          <Link href="/dashboard">
+            <TabBar icon={<Dashboard />}
+                    label={<Label>Dashboard</Label>}
+                    href="#" hoverIndicator/>
+          </Link>
+          <Link href="/articles">
+            <TabBar icon={<Package />}
+                  label={<Label>Articles</Label>}
+                  hoverIndicator/>
+          </Link>
+          <Link href="/categories">
+          <TabBar icon={<Catalog />}
                   label={<Label>Categories</Label>}
-                  href="#" hoverIndicator/>
-          <TadBar icon={<Organization />}
+                  hoverIndicator/>
+          </Link>
+          <Link href="/departments">
+          <TabBar icon={<Organization />}
                   label={<Label>Departments</Label>}
-                  href="#" hoverIndicator/>
+                  hoverIndicator/>
+          </Link>
         </Nav>
       </Sidebar>
     </>
