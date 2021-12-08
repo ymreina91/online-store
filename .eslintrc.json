@@ -30,7 +30,6 @@
     "no-empty": "error",
     "no-var": "warn",
     "no-unused-vars": "warn",
-    "eslint no-confusing-arrow": ["error", {"allowParens": true}],
     "prettier/prettier": "warn"
   }
 }

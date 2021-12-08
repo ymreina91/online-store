@@ -1,49 +1,15 @@
 import React, { useContext, useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { Grid,
-         Grommet,
-         Main,
-         Box,
-         Button,
-         ResponsiveContext,
-         Text } from 'grommet';
+import { Grid, Grommet, Box, ResponsiveContext } from 'grommet';
 import { grommet } from 'grommet/themes';
 import { NavBar } from '@components/NavBar';
 import { SideBar } from "@components/SideBar";
-
-const theme = {
-  // Colores del tema claro
-  light: {
-    background: "#fff",
-    color: "#212121"
-  },
-  // Colores del tema oscuro
-  dark: {
-    background: "#212121",
-    color: "#fff"
-  }
-};
 
 const Layout: React.FC<{}> = ({ children }) => {
   const size = useContext(ResponsiveContext);
   const [sidebar, setSidebar] = useState(true);
     return (
      <>
-       {/*<ThemeProvider theme={theme.light}>*/}
         <Grommet theme={grommet}>
-          {/*<NavBar/>
-          <Box
-             direction='row'
-             align='center'
-             justify='between'
-             pad={{horizontal: '0', vertical: '0'}}
-        >
-           <SideBar/>
-           <Main pad={{horizontal: 'small', vertical: 'small'}}>
-             <Text>{size}</Text>
-             { children }
-           </Main>
-        </Box>*/}
           <Grid
             fill
             rows={['auto', 'flex']}
@@ -58,8 +24,9 @@ const Layout: React.FC<{}> = ({ children }) => {
             {sidebar && (
               <SideBar/>
             )}
-            <Box gridArea="main" justify="center" align="center">
-              <Text>main</Text>
+            <Box gridArea="main" justify="start"
+                 align="center" pad="small">
+              {children}
             </Box>
           </Grid>
         </Grommet>

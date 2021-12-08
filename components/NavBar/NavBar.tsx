@@ -1,12 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Button, Menu, Box, Text } from 'grommet';
-import { Facebook } from 'grommet-icons';
 import { IPropsNavBar } from '@lib/types';
 
-const NavBar: React.FC<IPropsNavBar> = ({ sidebar=false,
-                                          setSidebar,
-                                          ...props }) => {
+const NavBar: React.FC<IPropsNavBar> = ({ sidebar=false, setSidebar, ...props }) => {
   return (
     <>
       <Box
