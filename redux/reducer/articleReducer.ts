@@ -1,15 +1,26 @@
-import {IAction, IArticle, IGlobalState, initialState} from '@lib/types';
+import {IArticle, IGlobalState, initialState} from '@lib/types';
 import {ActionType} from "@redux/action-types";
+import { AnyAction } from "redux";
+import { HYDRATE } from "next-redux-wrapper";
 
-const articleReducer = (state: IGlobalState = initialState, action: IAction) => {
+const articleReducer = (state: IGlobalState = initialState, action: AnyAction) => {
   const { type, payload } = action;
 
   switch (type) {
+    case HYDRATE:
+      return Object.assign({}, state, {
+        ...state
+      });
+
     case ActionType.CREATE_ARTICLE:
-      return [...state.articles ?? [], payload];
+      return  Object.assign({}, state, {
+        articles: [...state.articles ?? [], payload]
+      });
 
     case ActionType.RETRIEVE_ARTICLES:
-      return payload;
+      return Object.assign({}, state, {
+        ...payload
+      });
 
     case ActionType.UPDATE_ARTICLE:
       const data = payload as IArticle;
@@ -25,10 +36,12 @@ const articleReducer = (state: IGlobalState = initialState, action: IAction) => 
       });
 
     case ActionType.DELETE_ARTICLE:
-      return state.articles?.filter(({ id }) => id !== payload);
+      return Object.assign({}, state, {
+        articles: state.articles?.filter(({ id }) => id !== payload)
+      });
 
     default:
-      return state.articles;
+      return state;
   }
 };
 

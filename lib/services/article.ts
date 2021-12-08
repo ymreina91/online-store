@@ -26,7 +26,7 @@ const removeAll = () => {
 };
 
 const findByName = (name: string) => {
-  return axios.get(`/tutorials?title=${name}`);
+  return axios.get(`/articles?name=${name}`);
 };
 
 export default {

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { Box } from 'grommet';
+import { Box } from "grommet";
 import { articleActions } from "@redux/actions";
 
 const Departments: NextPage = () => {
